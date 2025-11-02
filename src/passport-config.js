@@ -1,5 +1,5 @@
 const LocalStrategy = require('passport-local').Strategy;
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const UserRepository = require('./repositories/UserRepository'); // Nuevo repositorio para usuarios
 
 function initialize(passport) {

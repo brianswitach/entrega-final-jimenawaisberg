@@ -2,9 +2,9 @@
     "name": "proyecto-curso-backend",
     "version": "1.0.0",
     "description": "Proyecto backend para curso",
-    "main": "app.js",
+    "main": "src/app.js",
     "scripts": {
-        "start": "node app.js"
+        "start": "node src/app.js"
     },
     "dependencies": {
         "bcryptjs": "^2.4.3",

@@ -19,27 +19,27 @@ app.set('views', __dirname + '/views');
 // Middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static('public'));
+app.use(express.static(__dirname + '/../public'));
 
-// Configuración de la sesión
+
 app.use(session({
-    secret: 'secret', // Cambia 'secret' por un valor seguro en producción
+    secret: 'secret', 
     resave: false,
     saveUninitialized: false
 }));
 
-// Configuración de Passport
+
 initializePassport(passport);
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Rutas
+
 app.use('/api/products', productsRouter);
 app.use('/api/carts', cartsRouter);
-app.use('/api/users', userRoutes);  // Nueva ruta para usuarios (registro, login, logout)
+app.use('/api/users', userRoutes);  
 app.use('/', indexRouter);
 
-// Conexión a la base de datos
+
 mongoose.connect('mongodb://localhost:27017/mydatabase', { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
         console.log('Connected to Database');
